@@ -1,3 +1,9 @@
+{- | Site file reader
+
+This module is responsible for reading the website's
+content files and create a Haskell representation of them
+
+-}
 
 module Web.Hen.Reader
   ( readSite
@@ -53,7 +59,6 @@ parsePost =
   . second (T.unlines . drop 1)
   . break (=="---")
   . T.lines
-
   where
     parseMeta meta =
       Post

@@ -1,3 +1,4 @@
+-- | Convert a website to HTML
 
 module Web.Hen.Html where
 

@@ -10,8 +10,8 @@ import Data.Time.Calendar
 type Html = H.Html ()
 
 data Site = Site
-  { sSide  :: Html
-  , sPosts :: [Post]
+  { siteSide  :: Html
+  , sitePosts :: [Post]
   }
   deriving (Show)
 

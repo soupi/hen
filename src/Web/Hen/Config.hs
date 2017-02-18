@@ -1,3 +1,9 @@
+{- | Configuration handling
+
+This module is responsible for reading user configuration
+either from the command-line arguments or configuration file
+
+-}
 
 module Web.Hen.Config
   ( Config(..)
@@ -10,6 +16,7 @@ import Options.Applicative
 import qualified Data.Text as T
 import qualified Data.Configurator as C
 
+-- | Use this to either to get the configuration
 parseArgs :: IO (Config, Bool)
 parseArgs = do
   args <- execParser paramsParserInfo
@@ -57,11 +64,9 @@ defaultConfig = Config
   , cfgRtl   = False
   }
 
-paramsParserInfo :: ParserInfo Params
-paramsParserInfo =
-  info (helper <*> config) $
-     fullDesc
-  <> header "Hen - a static website generator"
+--------------
+-- CLI Args --
+--------------
 
 data Params = Params
   { pCfg  :: Maybe Config
@@ -69,6 +74,11 @@ data Params = Params
   , pFile :: Maybe FilePath
   }
 
+paramsParserInfo :: ParserInfo Params
+paramsParserInfo =
+  info (helper <*> config) $
+     fullDesc
+  <> header "Hen - a static website generator"
 
 config :: Parser Params
 config = Params

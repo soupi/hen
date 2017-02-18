@@ -1,5 +1,6 @@
-{-# LANGUAGE TemplateHaskell #-}
+-- | Run the program
 
+{-# LANGUAGE TemplateHaskell #-}
 
 module Web.Hen.Run
   ( run
@@ -25,16 +26,12 @@ run = do
   (cfg, override) <- parseArgs
   site <- readSite
   mkOutputDir override
-  let index = template cfg (sSide site) (map postHtml (reverse . sortOn postDate $ sPosts site))
+  let index = template cfg (siteSide site) (map postHtml (reverse . sortOn postDate $ sitePosts site))
   BSL.writeFile ("output" </> "index.html") (renderBS index)
 
-  forM_ (sPosts site) $ \p -> do
-    let pHtml = template cfg (sSide site) [postHtml p]
+  forM_ (sitePosts site) $ \p -> do
+    let pHtml = template cfg (siteSide site) [postHtml p]
     BSL.writeFile ("output" </> (T.unpack (postRoute p) ++ ".html")) (renderBS pHtml)
-
-  pure ()
-
-
 
 mkOutputDir :: Bool -> IO ()
 mkOutputDir override = do
