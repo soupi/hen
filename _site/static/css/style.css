@@ -44,14 +44,17 @@ body {
 .side {
   padding-left: 20px;
   padding-right: 20px;
+  min-width: 100px;
+  max-width: 250px;
 }
 
 .content {
-  max-width: 780px;
+  max-width: 1000px;
   min-width: 250px;
   margin: 0px 30px;
   padding: 20px 40px;
   background-color: white;
+  flex-grow: 1;
 }
 h1, h2, h3, h4 {
   color: #090A3A;
@@ -72,7 +75,7 @@ a:hover {
 
 
 ul {
-  padding: 5px 15px 5px 5px;
+  padding: 5px 15px 5px 20px;
 }
 
 @media print, screen and (max-width: 500px) {

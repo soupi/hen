@@ -8,6 +8,10 @@ A static blog generator
 
 > Status: Experimental
 
+#### How It Looks
+
+![Example](example.png)
+
 
 #### Site Structure
 
