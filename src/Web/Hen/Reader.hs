@@ -12,7 +12,6 @@ where
 
 import Cheapskate.Lucid
 import Cheapskate (markdown)
-import Data.Monoid
 import Control.Monad
 import Control.Arrow
 import Data.Text (Text)

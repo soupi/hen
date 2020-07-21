@@ -3,7 +3,6 @@
 module Web.Hen.Html where
 
 import Lucid hiding (Html)
-import Data.Monoid
 import Data.Time.Calendar (toGregorian)
 
 import Web.Hen.Config
